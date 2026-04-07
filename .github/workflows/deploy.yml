@@ -1,0 +1,16 @@
+name: Deploy Ollama and Open WebUI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Ollama and Open WebUI
+        uses: bitovi/github-actions-deploy-ollama@v0.2.1
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          instance-type: t3.medium
+          model: llama3:8b
